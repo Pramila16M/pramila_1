@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+        background-size: 180% 180%;
+        animation: gradient-animation 18s ease infinite;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      #menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        color: rgb(7, 82, 82), bisque;
+        font-weight: bold;
+      }
+
+      .menu-item {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        padding: 10px;
+      }
+
+      .menu-item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Menu</h1>
+    <div id="menu"></div>
+
+    <script>
+      // Load menu data from JSON file
+      fetch("sejaa.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const menuContainer = document.getElementById("menu");
+
+          // Loop through menu items and create HTML elements for each
+          data.forEach((item) => {
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "menu-item";
+
+            const image = document.createElement("img");
+            image.src = item.image;
+            image.alt = item.name;
+
+            const name = document.createElement("h2");
+            name.textContent = item.name;
+
+            const description = document.createElement("p");
+            description.textContent = item.description;
+
+            const price = document.createElement("p");
+            price.textContent = `$${item.price.toFixed(2)}`;
+
+            itemDiv.appendChild(image);
+            itemDiv.appendChild(name);
+            itemDiv.appendChild(description);
+            itemDiv.appendChild(price);
+
+            menuContainer.appendChild(itemDiv);
+          });
+        })
+        .catch((error) => console.error("Error loading menu data:", error));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
