@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "name": "Burger",
+      "description": "A classic beef burger with lettuce, tomato, and cheese.",
+      "price": 8.99,
+      "image": "burger.jpeg",
+      "background-color": "grey"
+      
+    },
+    {
+      "id": 2,
+      "name": "Pizza",
+      "description": "A delicious pepperoni pizza with a crispy crust.",
+      "price": 10.99,
+      "image": "pizza.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "Salad",
+      "description": "A fresh garden salad with mixed greens and vinaigrette dressing.",
+      "price": 6.99,
+      "image": "salad.png"
+    }
+  ]
+  
